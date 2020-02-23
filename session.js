@@ -1,10 +1,10 @@
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 
 const key = urlParams.get('key');
-sessionStorage.setItem('keys', key);
-console.log(sessionStorage.getItem('keys'));
 
-document.cookie = "key=" + sessionStorage.getItem('keys');
+// Checks if the key exists so then the cookie is overwritten
+if(key){
+  document.cookie = "key=" + key + ";" + "max-age=2592000" ;
   console.log(document.cookie);
+}
