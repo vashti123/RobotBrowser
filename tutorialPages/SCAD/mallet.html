@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>3D Mini Mallet</title>
+  <link rel="stylesheet" type="text/css" href="../../tutorialPages/tutorialPageStyle.css">
+
+</head>
+
+<body>
+
+  <h1 style="text-align:center">3D Mini Mallet</h1>
+  <h2 style="text-align:center">Code Walkthrough</h2>
+  <div style="margin:auto;">
+    <h4>Code Color Guide</h4>
+    <pre class="codeBlock">
+<span style="color:#003ba0;">Keyword</span>     <span style="color:#ff0000;">Numbers</span>     <span style="color:#2aa62a;"> Boolean</span></pre>
+  </div>
+
+  <br>
+  <h3>First Cylinder</h3>
+  <p>Make a cylinder and center it:<p>
+  <pre class="codeBlock">
+<span style="color:#003ba0;">cylinder</span>(h = <span style="color:#ff0000;">10</span>,r = <span style="color:#ff0000;">3</span>, <span style="color:#2aa62a;">center</span> = true);</pre>
+
+<br>
+<h3>Rotate</h3>
+<p>Rotate the cylinder 90 degrees:<p>
+<pre class="codeBlock">
+<span style="color:#003ba0;">rotate</span>([<span style="color:#ff0000;">0</span>,<span style="color:#ff0000;">90</span>,<span style="color:#ff0000;">0</span>]){
+<span style="color:#003ba0;">cylinder</span>(h = <span style="color:#ff0000;">10</span>,r = <span style="color:#ff0000;">3</span>, <span style="color:#2aa62a;">center</span> = true);
+};</pre>
+
+<br>
+<h3>Handle Cylinder</h3>
+<p>Add another cylinder as the handle cylinder:<p>
+<pre class="codeBlock">
+(h = <span style="color:#ff0000;">15</span>,r = <span style="color:#ff0000;">2</span>);</pre>
+
+<br>
+<h3>Resolution</h3>
+<p>For finer resolution lower the number; the lower the number the higher resolution:<p>
+<pre class="codeBlock">
+$fs = <span style="color:#ff0000;">0.4</span>;</pre>
+
+</body>
+
+</html>
