@@ -1,7 +1,6 @@
 html {
-font-size: 16px;
-font-family: serif;
-
+  font-size: 16px;
+  font-family: serif;
 }
 
 .codeBlock {
@@ -14,13 +13,14 @@ font-family: serif;
 }
 
 pre.notCode {
-font-family: inherit;
-font-size: inherit;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 ul {
   list-style-type: none;
 }
+
 li:before {
   content: "- ";
   margin-left: -20px;
@@ -29,6 +29,7 @@ li:before {
 .def {
   font-style: italic;
 }
+
 * {
   box-sizing: border-box;
 }
