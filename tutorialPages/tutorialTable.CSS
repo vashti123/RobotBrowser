@@ -1,0 +1,62 @@
+.tablewrapper {
+  margin-top: 10px;
+  position: relative;
+  border: 1px solid blue;
+  width: 80%;
+}
+
+.table {
+  display: table;
+  width: 100%;
+}
+
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.cell p {
+  margin: auto;
+  font-size: 14px;
+  padding: 7px 7px 7px 7px;
+}
+
+.cell #title {
+  padding: 7px 7px 7px 7px;
+  font-size: 15px;
+}
+
+.cell #download {
+  width: 20px;
+  height: 20px;
+  float: right;
+}
+
+.cell.empty {
+  border: none;
+  width: 40px;
+}
+
+.cell.rowspanned {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+}
+
+img checkedBox {
+  width: 10px;
+  height: 10px;
+  margin: 20px 10px 0px 10px;
+}
+
+.cell #box {
+  margin: 20px 10px 0px 10px;
+  /* text-align: center;
+  vertical-align: middle; */
+}

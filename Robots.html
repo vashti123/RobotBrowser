@@ -6,7 +6,8 @@
 	<title>After~Coding Robots</title>
 	<link rel="stylesheet" type="text/css" href="navbar.css">
 	<link rel="stylesheet" type="text/css" href="bottomNavbar.css">
-	<link rel="stylesheet" type="text/css" href="tutorialTable.css">
+	<link rel="stylesheet" type="text/css" href="tutorialPages/tutorialTable.css">
+	<script src="session.js"></script>
 	</style>
 </head>
 
@@ -31,15 +32,53 @@
 			<h1 align="center">Robots</h1>
 		</header>
 
-		<div class="tutHead">
-			Arduino
+		Arduino
+
+		<div class="tablewrapper">
+			<div class="table">
+				<div class="row">
+					<div class="rowspanned cell">
+						<div id="uncheckedBox" onclick="check(this)">
+							<img id="box" src="img/blackBox.png" width="10px" height="10px" />
+						</div>
+					</div>
+					<div class="cell" id="title">
+						<a href="tutorialPages/yellowLightHtml.HTML" target="_a" style=" color: #000000; text-decoration: none;"><span id="title">Yellow Light</span></a>
+						<a href="tutorialPages/yellowLight.pdf" target="_a" style=" color: #000000; text-decoration: none;"><img id="download" src="img/pdfIcon.png"></a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="empty cell"></div>
+					<div class="cell">
+						<p>This tutorial creates a single blinking yellow light on the arduino</p>
+					</div>
+				</div>
+			</div>
 		</div>
 
-		<input type="checkbox" name="robot" value="robot1" style="padding"><br><br>
-		<a href="tutorialPages/yellowLight.pdf" target="_a" style=" color: #000000; text-decoration: none;">Yellow Light</a>
-
-
+		<div class="tablewrapper">
+			<div class="table">
+				<div class="row">
+					<div class="rowspanned cell">
+						<div id="uncheckedBox" onclick="check(this)">
+							<img id="box" src="img/blackBox.png" width="10px" height="10px" />
+						</div>
+					</div>
+					<div class="cell" id="title">
+						<a href="tutorialPages/lightsAnalogDial.HTML" target="_a" style=" color: #000000; text-decoration: none;"><span id="title">Lights and Analog Dial</span></a>
+						<a href="tutorialPages/lightsAnalogDial.pdf" target="_a" style=" color: #000000; text-decoration: none;"><img id="download" src="img/pdfIcon.png"></a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="empty cell"></div>
+					<div class="cell">
+						<p>something does something else</p>
+					</div>
+				</div>
+			</div>
+		</div>
 </body>
+
 <div class="bottomnav" id="myBottomnav">
 	<hr style="background-color: black; margin-bottom:0px; padding-bottom: 4px">
 	<hr style=" background-color: darkgrey; padding-bottom: 1px; padding-top: 1px; margin-top: 0px; margin-bottom: 0px;"> </a><b>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>OpenSCAD</title>
+  <link rel="stylesheet" type="text/css" href="tutorialPageStyle.css">
+</head>
+
+<body>
+
+  <h1 style="text-align:center">openSCAD</h1>
+  <h2 style="text-align:center">Code Lesson</h2>
+  <div style="margin:auto;">
+    <h4>Code Color Guide</h4>
+    <pre class="codeBlock">
+<span style="color:#003ba0;">Keyword</span>     <span style="color:#ff0000;">Numbers</span>     <span style="color:#2aa62a;"> Boolean</span></pre>
+  </div>
+
+  <br>
+  <h3>Intro</h3>
+  <p>In this Tutorial, you will learn how to make the 3 basic shapes of OpenScad, a 3D imaging program that converts code into to shapes.</p>
+
+  <br>
+  <h3>Vocab</h3>
+  <ul>
+    <li>Cube: Creates a cube in the first octant</li>
+    <li>Cylinder: Creates a cylinder or cone centered about the z axis</li>
+    <li>Sphere: Creates a sphere at the origin of the coordinate system</li>
+    <li>Center: determines where the shape is positioned</li>
+    <ul>
+      <li> When the Boolean value of center is ‘true’, the cube is centered at the origin (0, 0).</li>
+      <li> When the Boolean value of center is ‘false’, the cubes corner will start at the origin (0, 0).</li>
+    </ul>
+  </ul>
+  
+  <h3>Syntax</h3>
+
+  <h4>Cube</h4>
+  <p>cube(size = [x,y,z], center = true/false);</p>
+  <pre class="codeBlock">
+<span style="color:#003ba0;">cube </span>([<span style="color:#ff0000;">18</span>, <span style="color:#ff0000;">18</span>, <span style="color:#ff0000;">18</span>], center = <span style="color:#2aa62a;">true</span>);</pre>
+  <div class="row">
+    <div class="column">
+      <h5>Explanation</h5>
+      <pre class="notCode">
+      Start with the function initiator ‘cube’,
+      This has two arguments:
+          - size - an array of arguments for the dimensions X, Y, and Z
+          - center - determines where the shape is positioned</pre>
+    </div>
+    <div class="column">
+      <img src="../img/cube.png" alt="cylinder" width="200px" height="200px">
+    </div>
+  </div>
+
+
+  <br>
+  <h4>Cylinder</h4>
+  <p>cylinder(h = height, r1 = bottomRadius, r2 = topRadius, center = true/false);</p>
+  <pre class="codeBlock">
+<span style="color:#003ba0;">cylinder</span>(h, r, center = <span style="color:#2aa62a;">true</span> or <span style="color:#2aa62a;">false</span>);</pre>
+  <div class="row">
+    <div class="column">
+      <h5>Explanation</h5>
+      <pre class="notCode">
+      Start with the function initiator ‘cylinder’,
+      This three arguments:
+          - h - height of the cylinder
+          - d - diameter of the cylinder
+          - center - determines where the shape is positioned</pre>
+    </div>
+    <div class="column">
+      <img src="../img/cylinder.png" alt="cylinder" width="200px" height="200px">
+    </div>
+  </div>
+
+
+  <br>
+  <h4>Sphere</h4>
+  <p>sphere(r or d, center= true/false)</p>
+  <pre class="codeBlock">
+<span style="color:#003ba0;">sphere</span>(r = <span style="color:#ff0000;">50</span>, center = <span style="color:#2aa62a;">true</span>);</pre>
+  <div class="row">
+    <div class="column">
+      <pre class="notCode">
+      <h5>Explanation</h5>
+      Start with the function initiator ‘sphere’,
+      This has 2 arguments:
+          - r / d - radius / diameter of the sphere
+          - center - determines where the shape is positioned</pre>
+    </div>
+    <div class="column">
+      <img src="../img/Sphere.png" alt="cylinder" width="200px" height="200px">
+    </div>
+  </div>
+
+</body>
+
+</html>

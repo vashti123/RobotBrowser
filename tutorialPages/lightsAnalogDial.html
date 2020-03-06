@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Lights and Analog Dial</title>
+  <link rel="stylesheet" type="text/css" href="tutorialPageStyle.css">
+</head>
+
+<body>
+
+  <h1 style="text-align:center">Lights and Analog Dial</h1>
+  <h2 style="text-align:center">Code Walkthrough</h2>
+  <div style="margin:auto;">
+    <h4>Code Color Guide</h4>
+    <pre class="codeBlock">
+<span style="color:#2f918c;">Keyword</span>     <span style="color:#f15d23;">Function</span>     <span style="color:#4b5b37;"> Built-In Function</span>     <span style="color:#4f4b4b;">Comments</span></pre>
+  </div>
+
+  <br>
+  <h3>Define Pins</h3>
+  <p>Start by defining your pins so that they will not mixed up. This also allows for us to use this definition in the remainder of the code.</p>
+  <pre class="codeBlock">
+<span style="color:#4b5b37;">#define</span> blue 10 <span style="color:#4f4b4b;">// blue LED is pin 10</span>
+<span style="color:#4b5b37;">#define</span> yellow 12 <span style="color:#4f4b4b;">// yellow LED is pin 12</span>
+<span style="color:#4b5b37;">#define</span> green 11 <span style="color:#4f4b4b;">// green LED is pin 11</span>
+<span style="color:#4b5b37;">#define</span> red 13 <span style="color:#4f4b4b;">// red LED is pin 13</span></pre>
+
+  <br>
+  <h3>Set Integers</h3>
+  <p class="def">The keyword int is a declaration of a variable whose datatype is an integer.</p>
+  <pre class="codeBlock">
+<span style="color:#2f918c;">int</span> dial = 0; <span style="color:#4f4b4b;">// initial dial speed is 0</span>
+<span style="color:#2f918c;">int</span> <span style="color:#f15d23;">speed</span> = 50;<span style="color:#4f4b4b;"> // sets the delay time</span>
+<span style="color:#2f918c;">const int</span> buttonPin = 9;<span style="color:#4f4b4b;"> // dial will always be pin 9</span></pre>
+
+  <br>
+  <h3>Define Bool</h3>
+  <p class="def">Bool is a declaration of true or false.</p>
+  <pre class="codeBlock">
+<span style="color:#2f918c;">bool</span> buttonState = 0; <span style="color:#4f4b4b;">// sets the buttonState to false</span>
+<span style="color:#2f918c;">bool</span> lastState = 0;<span style="color:#4f4b4b;"> // sets the lastState to false</span>
+</pre>
+
+  <br>
+  <h3>Void Setup</h3>
+  <p>The void setup runs one time as soon as the program starts </p>
+  <pre class="codeBlock">
+<span style="color:#2f918c;">int</span> <span style="color:#4b5b37;">setup</span>() {
+  <span style="color:#f15d23;">Serial.begin</span>(9600); <span style="color:#4f4b4b;">// port for the serial monitor</span>
+  <span style="color:#f15d23;">pinMode</span>(blue, <span style="color:#2f918c;">OUTPUT</span>);<span style="color:#4f4b4b;"> // sets LED to an output</span>
+  <span style="color:#f15d23;">pinMode</span>(red, <span style="color:#2f918c;">OUTPUT</span>);
+  <span style="color:#f15d23;">pinMode</span>(green, <span style="color:#2f918c;">OUTPUT</span>);
+  <span style="color:#f15d23;">pinMode</span>(yellow, <span style="color:#2f918c;">OUTPUT</span>);
+  <span style="color:#f15d23;">pinMode</span>(buttonPin, <span style="color:#2f918c;">INPUT</span>);<span style="color:#4f4b4b;"> // sets dial to an input</span>
+}</pre>
+
+  <br>
+  <h3>Void Loop</h3>
+  <p>Runs in a constant loop </p>
+  <pre class="codeBlock">
+<span style="color:#2f918c;">int</span> <span style="color:#4b5b37;">loop</span>() {
+ <span style="color:#4f4b4b;">// buttonState reads to see if button pin is set to true or false</span>
+  buttonState = <span style="color:#f15d23;">digitalRead</span>(buttonPin);
+  dial = <span style="color:#f15d23;">analogRead</span>(0); <span style="color:#4f4b4b;">// reads the value of the dial on analog pin 0</span>
+  <span style="color:#f15d23;"><span style="color:#f15d23;">Serial.println</span></span>(dial);<span style="color:#4f4b4b;"> // prints the analogRead value to serial monitor</span>
+  if (dial < 256) {<span style="color:#4f4b4b;">// when the dial value is less the 256 it runLights case 0</span>
+    runLights(0);
+  } <span style="color:#4b5b37;">else if</span> (dial < 512) {<span style="color:#4f4b4b;">// when the dial value is less the 512 it runLights case 1</span>
+    runLights(1);
+  }
+  <span style="color:#4b5b37;">else if</span> (dial < 768) {<span style="color:#4f4b4b;">// when the dial value is less the 768 it runLights case 2</span>
+    runLights(2);
+  }
+  <span style="color:#4b5b37;">else</span> {<span style="color:#4f4b4b;">// when the dial value is anything else it runLights case 3</span>
+    runLights(3);
+  }
+}</pre>
+
+  <br>
+  <h3>Void runLights</h3>
+  <p>A function that holds the cases</p>
+  <pre class="codeBlock">
+<span style="color:#2f918c;">int</span> runLights(<span style="color:#2f918c;">int</span> c) {
+  <span style="color:#4b5b37;">switch</span>  (c) {
+    <span style="color:#4b5b37;">case</span>  0: <span style="color:#4f4b4b;">// one pattern of blinking lights</span>
+      <span style="color:#f15d23;">digitalWrite</span>(blue, <span style="color:#2f918c;">HIGH</span>);<span style="color:#4f4b4b;"> // turns light off</span>
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>); <span style="color:#4f4b4b;">// reads the int speed to change the delay</span>
+      <span style="color:#f15d23;">digitalWrite</span>(blue, <span style="color:#2f918c;">LOW</span>);<span style="color:#4f4b4b;"> // turns light off</span>
+      <span style="color:#f15d23;">Serial.println</span>("blue"); <span style="color:#4f4b4b;">// prints blue to the serial monitor when done</span>
+
+      <span style="color:#f15d23;">digitalWrite</span>(yellow, <span style="color:#2f918c;">HIGH</span>);
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>);
+      <span style="color:#f15d23;">digitalWrite</span>(yellow, <span style="color:#2f918c;">LOW</span>);
+      <span style="color:#f15d23;">Serial.println</span>("yellow");
+
+      <span style="color:#f15d23;">digitalWrite</span>(green, <span style="color:#2f918c;">HIGH</span>);
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>);
+      <span style="color:#f15d23;">digitalWrite</span>(green, <span style="color:#2f918c;">LOW</span>);
+      <span style="color:#f15d23;">Serial.println</span>("green");
+
+      <span style="color:#f15d23;">digitalWrite</span>(red, <span style="color:#2f918c;">HIGH</span>);
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>);
+      <span style="color:#f15d23;">digitalWrite</span>(red, <span style="color:#2f918c;">LOW</span>);
+      <span style="color:#f15d23;">Serial.println</span>("red");
+      <span style="color:#4b5b37;">break</span>; <span style="color:#4f4b4b;">// changes to next pattern</span>
+
+    <span style="color:#4b5b37;">case</span>  1: <span style="color:#4f4b4b;">// second pattern of blinking lights</span>
+      <span style="color:#f15d23;">digitalWrite</span>(green, <span style="color:#2f918c;">HIGH</span>);
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>);
+      <span style="color:#f15d23;">digitalWrite</span>(green, <span style="color:#2f918c;">LOW</span>);
+
+      <span style="color:#f15d23;">digitalWrite</span>(yellow, <span style="color:#2f918c;">HIGH</span>);
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>);
+      <span style="color:#f15d23;">digitalWrite</span>(yellow, <span style="color:#2f918c;">LOW</span>);
+
+      <span style="color:#f15d23;">digitalWrite</span>(blue, <span style="color:#2f918c;">HIGH</span>);
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>);
+      <span style="color:#f15d23;">digitalWrite</span>(blue, <span style="color:#2f918c;">LOW</span>);
+
+      <span style="color:#f15d23;">digitalWrite</span>(red, <span style="color:#2f918c;">HIGH</span>);
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>);
+      <span style="color:#f15d23;">digitalWrite</span>(red, <span style="color:#2f918c;">LOW</span>);
+      <span style="color:#4b5b37;">break</span>; <span style="color:#4f4b4b;">// changes to next pattern</span>
+
+    <span style="color:#4b5b37;">case</span>  2: <span style="color:#4f4b4b;">// third pattern of blinking lights</span>
+      <span style="color:#f15d23;">digitalWrite</span>(yellow, <span style="color:#2f918c;">HIGH</span>);
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>);
+      <span style="color:#f15d23;">digitalWrite</span>(yellow, <span style="color:#2f918c;">LOW</span>);
+
+      <span style="color:#f15d23;">digitalWrite</span>(red, <span style="color:#2f918c;">HIGH</span>);
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>);
+      <span style="color:#f15d23;">digitalWrite</span>(red, <span style="color:#2f918c;">LOW</span>);
+
+      <span style="color:#f15d23;">digitalWrite</span>(green, <span style="color:#2f918c;">HIGH</span>);
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>);
+      <span style="color:#f15d23;">digitalWrite</span>(green, <span style="color:#2f918c;">LOW</span>);
+
+      <span style="color:#f15d23;">digitalWrite</span>(blue, <span style="color:#2f918c;">HIGH</span>);
+      <span style="color:#f15d23;">delay</span>(<span style="color:#f15d23;">speed</span>);
+      <span style="color:#f15d23;">digitalWrite</span>(blue, <span style="color:#2f918c;">LOW</span>);
+      <span style="color:#4b5b37;">break</span>; <span style="color:#4f4b4b;">// changes to next pattern</span>
+
+    <span style="color:#4b5b37;">case</span>  3:<span style="color:#4f4b4b;">// turns off</span>
+      <span style="color:#4b5b37;">break</span>;
+  }
+}</pre>
+
+</body>
+
+</html>
