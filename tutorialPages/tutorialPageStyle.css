@@ -3,6 +3,16 @@ html {
   font-family: serif;
 }
 
+.colorGuide{
+  margin-top: 0px;
+  background-color: #dbdbdb;
+  padding: 5px 10px 5px 10px;
+  margin: 0px 00px 0px 20px;
+  width: fit-content;
+  overflow: auto;
+  border: 3px outset;
+}
+
 .codeBlock {
   background-color: #dbdbdb;
   padding: 5px 10px 5px 10px;
