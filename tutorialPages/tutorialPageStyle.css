@@ -1,0 +1,59 @@
+html {
+  font-size: 16px;
+  font-family: serif;
+}
+
+.colorGuide{
+  margin-top: 0px;
+  background-color: #dbdbdb;
+  padding: 5px 10px 5px 10px;
+  margin: 0px 00px 0px 20px;
+  width: fit-content;
+  overflow: auto;
+  border: 3px outset;
+}
+
+.codeBlock {
+  background-color: #dbdbdb;
+  padding: 5px 10px 5px 10px;
+  margin: 0px 00px 0px 20px;
+  width: fit-content;
+  overflow: auto;
+  border: 3px outset;
+}
+
+pre.notCode {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li:before {
+  content: "- ";
+  margin-left: -20px;
+}
+
+.def {
+  font-style: italic;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  width: 30%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

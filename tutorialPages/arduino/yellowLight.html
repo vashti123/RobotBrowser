@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Yellow Light</title>
+  <link rel="stylesheet" type="text/css" href="../../tutorialPages/tutorialPageStyle.css">
+</head>
+
+<body>
+
+
+  <h1 style="text-align:center">Yellow Light</h1>
+  <h2 style="text-align:center">Code Walkthrough</h2>
+  <center>
+    <div>
+      <pre class="colorGuide">
+<span>Code Color Guide</span>
+<span style="color:#2f918c;">Keyword</span>     <span style="color:#f15d23;">Function</span>     <span style="color:#4b5b37;"> Built-In Function</span>     <span style="color:#4f4b4b;">Comments</span></pre>
+    </div>
+  </center>
+
+  <br>
+  <h3>Set constants</h3>
+  <p class="def">A variable whose value cannot be changed during runtime.</p>
+  <p>A constant will never change; therefore, the pins will always be linked to the corresponding constant. If the pin connection is changed we must also update the code.</p>
+  <p>Set your constants at the top of the page:</p>
+  <pre class="codeBlock">
+<span style="color:#2f918c;">const int </span>pushButtonPin = 2;<span style="color:#767171;"><span style="color:#4f4b4b;"> // Push button pin</span></span>
+<span style="color:#2f918c;">const int </span>ledPin = 13; <span style="color:#4f4b4b;">// LED pin</span></pre>
+
+  <br>
+  <h3>Set Variables</h3>
+  <p class="def">An object that stores a single value that can be changed.</p>
+  <ul>
+    <li>When ‘pushButtonState’ is false nothing will happen.</li>
+    <li>When ‘pushButtonState’ is true the yellow light will turn on.</li>
+  </ul>
+  <p>Set your variables after your constants:</p>
+  <pre class="codeBlock">
+<span style="color:#2f918c;">const int </span>pushButtonState = 0; <span style="color:#4f4b4b;">// Reads button status</span></pre>
+  <br><br>
+  <h3>Functions</h3>
+  C++ has different types of functions, for this tutorial we will only use the void function.
+  A void function is a function with no return value.
+
+
+  <br>
+  <h4>Setup Function</h4>
+  <p class="def">A setup function defines the initial environment properties and loads media.</p>
+  <pre class="codeBlock">
+<span style="color:#2f918c;">void </span><span style="color:#4b5b37;">setup</span>() {
+    <span style="color:#f15d23;">pinMode</span>(ledPin, <span style="color:#2f918c;">OUTPUT</span>); <span style="color:#4f4b4b;">// Sets pin 13 as an OUTPUT so the LED with light up</span>
+    <span style="color:#f15d23;">pinMode</span>(buttonPin, <span style="color:#2f918c;">INPUT</span>); <span style="color:#4f4b4b;">// Sets pin 2 as an INPUT waiting for a value</span>
+}</pre>
+
+
+  <br>
+  <h4>Loop Function</h4>
+  <p class="def">‘for’ loops loop through a block of code a number of times.</p>
+  <pre class="codeBlock">
+<span style="color:#2f918c;">void </span><span style="color:#4b5b37;">loop</span>() {
+  pushButtonState = <span style="color:#f15d23;">digitalRead</span>(buttonPin); <span style="color:#4f4b4b;">// Watches for button state to change</span>
+    <span style="color:#4b5b37;">if</span> (pushButtonState = <span style="color:#2f918c;">HIGH</span>) {
+        <span style="color:#f15d23;">digitalWrite</span>(ledPin, <span style="color:#2f918c;">HIGH</span>); <span style="color:#4f4b4b;">// LED will turn on</span>
+    } <span style="color:#4b5b37;">else</span> {
+      <span style="color:#f15d23;">digitalWrite</span>(ledPin, <span style="color:#2f918c;">LOW</span>); <span style="color:#4f4b4b;">// LED will turn off</span>
+    }
+}</pre>
+
+</body>
+
+</html>

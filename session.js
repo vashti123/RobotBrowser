@@ -1,10 +1,9 @@
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
+function uncheck(target) {
+  target.innerHTML = '<img id="box" src="img/blackBox.png" width="10px" height="10px"/>';
+  target.setAttribute('onclick', 'check(this)')
+}
 
-const key = urlParams.get('key');
-
-// Checks if the key exists so then the cookie is overwritten
-if(key){
-  document.cookie = "key=" + key + ";" + "max-age=2592000" ;
-  console.log(document.cookie);
+function check(target) {
+  target.innerHTML = '<img id="box" src="img/checkedBox.png" width="10px" height="10px"/>';
+  target.setAttribute('onclick', 'uncheck(this)')
 }
