@@ -8,10 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="bottomNavbar.css">
 	<link rel="stylesheet" type="text/css" href="tutorialTable.css">
 	<script src="session.js"></script>
+	<script src="CheckList.js"></script>
 	</style>
 </head>
 
-<body>
+<body onunload="returnChecklist()">
 
 	<div class="topNavBar">
 		</a><b>
@@ -37,7 +38,7 @@
 		<div class="row">
 			<div class="rowspanned cell">
 				<div id="uncheckedBox" onclick="check(this)">
-					<img id="box" src="img/blackBox.png" width="10px" height="10px" />
+					<img id="notBox" src="img/blackBox.png" width="10px" height="10px" />
 				</div>
 			</div>
 			<div class="cell" id="title">
@@ -58,7 +59,7 @@
 		<div class="row">
 			<div class="rowspanned cell">
 				<div id="uncheckedBox" onclick="check(this)">
-					<img id="box" src="img/blackBox.png" width="10px" height="10px" />
+					<img id="notBox" src="img/blackBox.png" width="10px" height="10px" />
 				</div>
 			</div>
 			<div class="cell" id="title">
