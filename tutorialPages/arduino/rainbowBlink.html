@@ -3,14 +3,14 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Yellow Light</title>
+  <title>Rainbow Blink</title>
   <link rel="stylesheet" type="text/css" href="../../tutorialPages/tutorialPageStyle.css">
 </head>
 
 <body>
 
 
-  <h1 style="text-align:center">Yellow Light</h1>
+  <h1 style="text-align:center">Rainbow Blink</h1>
   <h2 style="text-align:center">Code Walkthrough</h2>
   <center>
     <div>
@@ -22,81 +22,63 @@
 
   <br>
   <h3>Set up</h3>
-  <p class="def">Needed for all NeoPixels see Fade (WS2812) for more detail..</p>
-  <p>A constant will never change; therefore, the pins will always be linked to the corresponding constant. If the pin connection is changed we must also update the code.</p>
-  <p>Set your constants at the top of the page:</p>
-  <pre class="codeBlock"> #include <Adafruit_NeoPixel.h>
+  <p>Needed for all NeoPixels see Fade (WS2812) for more detail.</p>
+  <pre class="codeBlock">#include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
 #endif
 Adafruit_NeoPixel pixels(24, PIN, NEO_GRB + NEO_KHZ800);
-
-<span style="color:#2f918c;">const int </span>pushButtonPin = 2;<span style="color:#767171;"><span style="color:#4f4b4b;"> // Push button pin</span></span>
-<span style="color:#2f918c;">const int </span>ledPin = 13; <span style="color:#4f4b4b;">// LED pin</span></pre>
+</pre>
 
   <br>
   <h3>Define Pins</h3>
-  <p class="def">When defining pins they won’t get confused and mixed up. When you change the pin number you also only have to change it once rather than finding it and changing it in every part of the code you used it. </p>
-  <ul>
-    <li>When ‘#define pin 6’ is false nothing will happen.</li>
-    <li>When ‘#define pin 6’ is true the yellow light will turn on.</li>
-  </ul>
-  <p>Set your variables after your constants:</p>
-  <pre class="codeBlock">
-<span style="color:#2f918c;">const int </span>pushButtonState = 0; <span style="color:#4f4b4b;">// Reads button status</span></pre>
-  <br><br>
-  <h3>Functions</h3>
-  C++ has different types of functions, for this tutorial we will only use the void function.
-  A void function is a function with no return value.
-<!-- I am confused whether or not I am to change this ^ -->
+  <p>Start by defining your pins so that they will not get mixed up. This also allows for us to use this definition in the remainder of the code.</p>
+  <pre class="codeBlock">#define pin 6</pre>
 
   <br>
-  <h4>Set Integers  </h4>
+  <h3>Set Integers</h3>
   <p class="def">The keyword Int is a declaration of a variable whose datatype is an integer. This is a multidimensional array to pick all the colors.</p>
-  <pre class="codeBlock">
-<span style="color:#2f918c;">void </span><span style="color:#4b5b37;">setup</span>() {
-    <span style="color:#f15d23;">pinMode</span>(ledPin, <span style="color:#2f918c;">OUTPUT</span>); <span style="color:#4f4b4b;">// Sets pin 13 as an OUTPUT so the LED with light up</span>
-    <span style="color:#f15d23;">pinMode</span>(buttonPin, <span style="color:#2f918c;">INPUT</span>); <span style="color:#4f4b4b;">// Sets pin 2 as an INPUT waiting for a value</span>
-}</pre>
+  <pre class="codeBlock">int colors[6][3] = {
+  {255, 0, 0}, //red
+  {255, 69, 0}, //orange
+  {255, 255, 0}, //yellow
+  {0, 255, 0}, //green
+  {0, 0, 255}, //blue
+  {100, 0, 100} //purple
+};
+</pre>
 
 
   <br>
-  <h4>Void Setup</h4>
-  <p class="def">The void setup runs one time as soon as the program starts </p>
-  <pre class="codeBlock">
-<span style="color:#2f918c;">void </span><span style="color:#4b5b37;">loop</span>() {
-  pushButtonState = <span style="color:#f15d23;">digitalRead</span>(buttonPin); <span style="color:#4f4b4b;">// Watches for button state to change</span>
-    <span style="color:#4b5b37;">if</span> (pushButtonState = <span style="color:#2f918c;">HIGH</span>) {
-        <span style="color:#f15d23;">digitalWrite</span>(ledPin, <span style="color:#2f918c;">HIGH</span>); <span style="color:#4f4b4b;">// LED will turn on</span>
-    } <span style="color:#4b5b37;">else</span> {
-      <span style="color:#f15d23;">digitalWrite</span>(ledPin, <span style="color:#2f918c;">LOW</span>); <span style="color:#4f4b4b;">// LED will turn off</span>
+  <h3>Void Setup</h3>
+  <p>The void setup runs one time as soon as the program starts </p>
+  <pre class="codeBlock">void setup()
+{
+  pixels.begin();
+  pixels.setBrightness(50);
+}
+</pre>
+
+<br>
+<h3>Void Loop</h3>
+<p>Runs in a constant loop</p>
+<pre class="codeBlock">void loop() {
+  NeoBlink(24, 200); //number of pixels and speed
+}
+</pre>
+
+<br>
+<h3>Void Runlights</h3>
+<p>Loops through the colors.</p>
+<pre class="codeBlock">void NeoBlink(int num, int wait) {
+  for (int i = 0; i < 6; i++){ //this loop runs through all 6 colors
+    for (int r = 0; r < num; r++){/*this loop picks the colors from our array*/
+      pixels.setPixelColor(r, colors[i][0], colors[i][1], colors[i][2]);
     }
-}</pre>
-
-<br>
-<h4>Void Loop</h4>
-<p class="def">‘for’ loops loop through a block of code a number of times.</p>
-<pre class="codeBlock">
-<span style="color:#2f918c;">void </span><span style="color:#4b5b37;">loop</span>() {
-pushButtonState = <span style="color:#f15d23;">digitalRead</span>(buttonPin); <span style="color:#4f4b4b;">// Watches for button state to change</span>
-  <span style="color:#4b5b37;">if</span> (pushButtonState = <span style="color:#2f918c;">HIGH</span>) {
-      <span style="color:#f15d23;">digitalWrite</span>(ledPin, <span style="color:#2f918c;">HIGH</span>); <span style="color:#4f4b4b;">// LED will turn on</span>
-  } <span style="color:#4b5b37;">else</span> {
-    <span style="color:#f15d23;">digitalWrite</span>(ledPin, <span style="color:#2f918c;">LOW</span>); <span style="color:#4f4b4b;">// LED will turn off</span>
+    pixels.show();
+    delay(wait);
   }
-}</pre>
-
-<br>
-<h4>Void Runlights</h4>
-<p class="def">Loops through the colors. </p>
-<pre class="codeBlock">
-<span style="color:#2f918c;">void </span><span style="color:#4b5b37;">loop</span>() {
-pushButtonState = <span style="color:#f15d23;">digitalRead</span>(buttonPin); <span style="color:#4f4b4b;">// Watches for button state to change</span>
-  <span style="color:#4b5b37;">if</span> (pushButtonState = <span style="color:#2f918c;">HIGH</span>) {
-      <span style="color:#f15d23;">digitalWrite</span>(ledPin, <span style="color:#2f918c;">HIGH</span>); <span style="color:#4f4b4b;">// LED will turn on</span>
-  } <span style="color:#4b5b37;">else</span> {
-    <span style="color:#f15d23;">digitalWrite</span>(ledPin, <span style="color:#2f918c;">LOW</span>); <span style="color:#4f4b4b;">// LED will turn off</span>
-  }
-}</pre>
+}
+</pre>
 
 </body>
 
