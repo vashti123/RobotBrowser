@@ -8,7 +8,13 @@
 	<link rel="stylesheet" type="text/css" href="bottomNavbar.css">
 	<link rel="stylesheet" type="text/css" href="tutorialTable.css">
 	<script src="session.js"></script>
-	</style>
+
+	<div class="loginLogoBar">
+		<div class="textLogo">
+			<span class="logo"> After~Coding</span>
+		</div>
+	</div>
+
 </head>
 
 <body>
@@ -16,7 +22,6 @@
 	<div class="topNavBar">
 		</a><b>
 			<div class="topnav" id="myTopnav">
-				<a style="float:right">Login</a>
 				<a href="index.html">Home</a>
 				<a href="Robots.html" style="background-color: black;">Robots</a>
 				<a href="Prints.html">Prints </a>
@@ -33,26 +38,34 @@
 		</header>
 
 		Arduino
-
 		<div class="tablewrapper">
 			<div class="table">
 				<div class="row">
-					<div class="rowspanned cell">
-						<div class="round">
-							<input type="checkbox" id="checkbox" />
-							<label for="checkbox"><span class="checkmark"></span></label>
-						</div>
-					</div>
+					<table>
+						<tr>
+							<td rowspan="2" class="checkRow">
+								<div class="round">
+									<input type="checkbox" id="checkbox1" />
+									<label for="checkbox1"><span class="checkmark"></span></label>
+								</div>
+				</div>
+				</td>
+				<td>
 					<div class="cell" id="title">
-						<a href="tutorialPages/arduino/yellowLight.html" target="_a" style=" color: #000000; text-decoration: none;"><span id="title">Yellow Light</span></a>
 						<a href="tutorialPages/arduino/yellowLight.pdf" target="_a" style=" color: #000000; text-decoration: none;"><img id="download" src="img/pdfIcon.png"></a>
+						<a href="tutorialPages/arduino/yellowLight.html" target="_a" style=" color: #000000; text-decoration: none;"><span id="title">Yellow Light</span></a>
 					</div>
-				</div>
+				</td>
+				</tr>
 				<div class="row">
-					<div class="empty cell"></div>
-					<div class="cell">
-						<p>In this tutorial, you will learn how to create a single blinking yellow light on the arduino.</p>
-					</div>
+					<tr>
+						<td>
+							<div class="cell">
+								<p>In this tutorial, you will learn how to create a single blinking yellow light on the arduino.</p>
+							</div>
+						</td>
+					</tr>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -60,26 +73,38 @@
 		<div class="tablewrapper">
 			<div class="table">
 				<div class="row">
-					<div class="rowspanned cell">
-						<div class="round">
-							<input type="checkbox" id="checkbox" />
-							<label for="checkbox"><span class="checkmark"></span></label>
-						</div>
-					</div>
-					<div class="cell" id="title">
-						<a href="tutorialPages/arduino/lightsAnalogDial.html" target="_a" style=" color: #000000; text-decoration: none;"><span id="title">Lights and Analog Dial</span></a>
-						<a href="tutorialPages/arduino/lightsAnalogDial.pdf" target="_a" style=" color: #000000; text-decoration: none;"><img id="download" src="img/pdfIcon.png"></a>
-					</div>
+					<table>
+						<tr>
+							<td rowspan="2" class="checkRow">
+								<div class="round">
+									<input type="checkbox" id="checkbox2" />
+									<label for="checkbox2"><span class="checkmark"></span></label>
+								</div>
+							</td>
 				</div>
-				<div class="row">
-					<div class="empty cell"></div>
-					<div class="cell">
-						<p>In this tutorial, you will learn how to use an analog dial to change the patterns of the LED lights.</p>
+				<td>
+					<div class="cell" id="title">
+						<a href="tutorialPages/arduino/lightsAnalogDial.pdf" target="_a" style=" color: #000000; text-decoration: none;"><img id="download" src="img/pdfIcon.png"></a>
+						<a href="tutorialPages/arduino/lightsAnalogDial.html" target="_a" style=" color: #000000; text-decoration: none;"><span id="title">Lights and Analog Dial</span></a>
 					</div>
+				</td>
+				</tr>
+				<div class="row">
+					<tr>
+						<td>
+							<div class="cell">
+								<p>In this tutorial, you will learn how to use an analog dial to change the patterns of the LED lights.</p>
+							</div>
+						</td>
+					</tr>
+					</table>
 				</div>
 			</div>
 		</div>
+
 </body>
+
+
 
 <div class="bottomnav" id="myBottomnav">
 	<hr style="background-color: black; margin-bottom:0px; padding-bottom: 4px">

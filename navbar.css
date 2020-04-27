@@ -1,19 +1,30 @@
 < !DOCTYPE css><CSS>< !--
 
 .topnav {
-  background-color: #333;
-  overflow: hidden;
+
+  position: relative;
+    z-index: 2;
+    font-size: 17px;
+    background-color: #5f5f5f;
+    color: #f1f1f1;
+    width: 100%;
+    padding: 0;
+    letter-spacing: 1px;
+    font-family: "Segoe UI",Arial,sans-serif;
 }
 
 .topNavBar {
   background-color: dimgrey;
-  margin-left: 0px;
+  /* margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
   padding-bottom: 50px;
   padding-left: 0px;
   padding-right: 5px;
-  padding-top: 5px;
+  padding-top: 5px; */
+  width: 100%;
+  overflow: hidden;
+  height: 44px;
 }
 
 .topnav a {
